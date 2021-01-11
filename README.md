@@ -14,7 +14,7 @@ Usage :
 > %[[flags](#flags-directives)][[width](#width-specification)][[.precision](#precision-specification)][type](#type-conversion-specifier)
 
 
-### Type conversion specifier :
+### Type conversion specifier
 
 | Format specifier | Suitable type | Output format |
 | --- | --- | --- |
@@ -27,12 +27,12 @@ Usage :
 | `X` | `unsigned int` | Unsigned hexadecimal integers (using "`ABCDEF`"). |
 | `%` | `NONE` | Display the `%` character |
 
-### Flags directives :
+### Flags directives
 | Flag | Description |
 | --- | --- |
 | `-` | Left justify |
 | `0` | Pad with leading `0` |
 
-### Width specification :
+### Width specification
 
-### Precision specification :
+### Precision specification
