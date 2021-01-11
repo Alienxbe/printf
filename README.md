@@ -4,10 +4,6 @@
 int ft_printf(const char *, ...);
 ```
 
-1) getting number of args by reading the string
-2) Testing if it equals to the number of given arguments
-3) 
-
 ## Conversion Specification
 
 Usage : 
@@ -36,3 +32,11 @@ Usage :
 ### Width specification
 
 ### Precision specification
+
+## Sources
+
++ [Microsoft documentation](https://docs.microsoft.com/en-us/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions)
+
+## Licenses & copyright
+
+© Ykman Martin, School 19
