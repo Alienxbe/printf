@@ -8,9 +8,13 @@ int ft_printf(const char *, ...);
 2) Testing if it equals to the number of given arguments
 3) 
 
+## Conversion Specification
+
+Usage : 
+> %[[flags](flags-directives)][[width](width-specification)][[.precision](precision-specification)][type](type-conversion-specifier)
 
 
-## Convertions :
+### Type conversion specifier :
 
 | Format specifier | Suitable type | Output format |
 | --- | --- | --- |
@@ -23,10 +27,12 @@ int ft_printf(const char *, ...);
 | `X` | `unsigned int` | Unsigned hexadecimal integers (using "`ABCDEF`"). |
 | `%` | `NONE` | Display the `%` character |
 
-## Flags :
-| Type character |
-| --- |
-| `-` |
-| `0` |
-| `.` |
-| `*` |
+### Flags directives :
+| Flag | Description |
+| --- | --- |
+| `-` | Left justify |
+| `0` | Pad with leading `0` |
+
+### Width specification :
+
+### Precision specification :
