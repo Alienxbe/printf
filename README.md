@@ -11,7 +11,7 @@ int ft_printf(const char *, ...);
 ## Conversion Specification
 
 Usage : 
-> %[[flags](flags-directives)][[width](width-specification)][[.precision](precision-specification)][type](type-conversion-specifier)
+> %[[flags](#flags-directives)][[width](#width-specification)][[.precision](#precision-specification)][type](#type-conversion-specifier)
 
 
 ### Type conversion specifier :
