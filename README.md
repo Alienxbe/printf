@@ -32,8 +32,8 @@ The first optional field in a conversion specification contains flag directives,
 
 | Flag | Description |
 | --- | --- |
-| `-` | Left justify |
 | `0` | Pad with leading `0` |
+| `-` | Left justify |
 
 ### Width specification
 
