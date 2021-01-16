@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 15:02:32 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/10 19:31:48 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/11 03:08:11 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	ft_printf(int n, ...)
 
 int main(void)
 {
-	printf("%04.d\n", 255651651);
+	//printf("Boonjour %s %*d ca va ?\n", "Theo", 15, 156);
+	printf("%s %0*d\n", "Bonjour les amis %s tout va bien ?", 20, 42);
 	return 0;
 }
