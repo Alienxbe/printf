@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 15:54:10 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/14 15:41:59 by mykman           ###   ########.fr       */
+/*   Created: 2020/11/18 12:34:16 by mykman            #+#    #+#             */
+/*   Updated: 2021/01/07 19:55:23 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main()
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	ft_printf("Bonjour %% quelle age as tu %-12256s du %0*.*d");
-	//printf("%-0-0-0-0-0-0-0-10d|\n", 50);
-	return (0);
+	unsigned char	*ptr_s1;
+	unsigned char	*ptr_s2;
+	size_t			i;
+
+	if (!s1 || !s2)
+		return (0);
+	ptr_s1 = (unsigned char *)s1;
+	ptr_s2 = (unsigned char *)s2;
+	i = 0;
+	while (ptr_s1[i] && ptr_s2[i] && i < n && ptr_s1[i] == ptr_s2[i])
+		i++;
+	return ((i == n) ? 0 : ptr_s1[i] - ptr_s2[i]);
 }

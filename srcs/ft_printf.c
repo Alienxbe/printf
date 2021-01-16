@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 15:54:10 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/14 15:41:59 by mykman           ###   ########.fr       */
+/*   Created: 2021/01/14 09:52:47 by mykman            #+#    #+#             */
+/*   Updated: 2021/01/14 16:05:19 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int main()
+int	ft_printf(const char *format)
 {
-	ft_printf("Bonjour %% quelle age as tu %-12256s du %0*.*d");
-	//printf("%-0-0-0-0-0-0-0-10d|\n", 50);
+	int i;
+	int out;
+
+	i = -1;
+	while (format[++i])
+	{
+		if (format[i] == '%')
+		{
+			out = ft_conversion(format + i + 1);
+			ft_putstr_fd("Flags : ", 1);
+			ft_putnbr_fd(out, 1);
+			if (out >= 8192)
+				ft_putendl_fd("\nFLAG ERROR", 1);
+			ft_putendl_fd("\n-------------", 1);
+		}
+	}
 	return (0);
 }

@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 15:54:10 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/14 15:41:59 by mykman           ###   ########.fr       */
+/*   Created: 2020/11/23 16:16:30 by mykman            #+#    #+#             */
+/*   Updated: 2020/12/27 20:32:25 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main()
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	ft_printf("Bonjour %% quelle age as tu %-12256s du %0*.*d");
-	//printf("%-0-0-0-0-0-0-0-10d|\n", 50);
-	return (0);
+	t_list	*tmp;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		tmp = *lst;
+		*lst = (*lst)->next;
+		ft_lstdelone(tmp, del);
+	}
 }

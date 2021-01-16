@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 15:54:10 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/14 15:41:59 by mykman           ###   ########.fr       */
+/*   Created: 2020/11/25 17:33:51 by mykman            #+#    #+#             */
+/*   Updated: 2021/01/07 19:18:54 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main()
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	ft_printf("Bonjour %% quelle age as tu %-12256s du %0*.*d");
-	//printf("%-0-0-0-0-0-0-0-10d|\n", 50);
-	return (0);
+	unsigned char	*d;
+	unsigned char	*s;
+
+	if (!dest || !src)
+		return (NULL);
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	if (dest < src)
+		while (n--)
+			*d++ = *s++;
+	else
+		ft_memcpy(dest, src, n);
+	return (dest);
 }

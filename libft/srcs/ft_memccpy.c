@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 15:54:10 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/14 15:41:59 by mykman           ###   ########.fr       */
+/*   Created: 2020/11/19 17:41:31 by mykman            #+#    #+#             */
+/*   Updated: 2021/01/07 18:58:44 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main()
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	ft_printf("Bonjour %% quelle age as tu %-12256s du %0*.*d");
-	//printf("%-0-0-0-0-0-0-0-10d|\n", 50);
-	return (0);
+	size_t			i;
+
+	i = 0;
+	while (i < n && dest && src)
+	{
+		*((unsigned char *)dest + i) = *((unsigned char *)src + i);
+		if (*((unsigned char *)dest + i) == (unsigned char)c)
+			return (((unsigned char *)dest + i + 1));
+		i++;
+	}
+	return (NULL);
 }

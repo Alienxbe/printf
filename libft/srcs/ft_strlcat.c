@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 15:54:10 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/14 15:41:59 by mykman           ###   ########.fr       */
+/*   Created: 2020/11/18 13:16:24 by mykman            #+#    #+#             */
+/*   Updated: 2021/01/07 19:41:53 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main()
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	ft_printf("Bonjour %% quelle age as tu %-12256s du %0*.*d");
-	//printf("%-0-0-0-0-0-0-0-10d|\n", 50);
-	return (0);
+	size_t	i;
+	size_t	dst_len;
+
+	i = -1;
+	dst_len = ft_strlen(dst);
+	if (dstsize <= dst_len)
+		return (dstsize + ft_strlen(src));
+	while (src[++i] && i < dstsize - dst_len - 1)
+		dst[i + dst_len] = src[i];
+	dst[i + dst_len] = 0;
+	return (dst_len + ft_strlen(src));
 }

@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 15:54:10 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/14 15:41:59 by mykman           ###   ########.fr       */
+/*   Created: 2020/11/22 15:46:02 by mykman            #+#    #+#             */
+/*   Updated: 2020/12/27 20:11:32 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main()
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	ft_printf("Bonjour %% quelle age as tu %-12256s du %0*.*d");
-	//printf("%-0-0-0-0-0-0-0-10d|\n", 50);
-	return (0);
+	char	*ptr;
+	int		n;
+
+	if (!s || !f)
+		return (NULL);
+	n = ft_strlen(s);
+	if (!(ptr = (char *)ft_calloc(n + 1, sizeof(*ptr))))
+		return (NULL);
+	while (n--)
+		ptr[n] = f(n, s[n]);
+	return (ptr);
 }
