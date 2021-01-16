@@ -5,32 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/10 15:02:32 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/11 03:08:11 by mykman           ###   ########.fr       */
+/*   Created: 2020/10/10 15:54:10 by mykman            #+#    #+#             */
+/*   Updated: 2021/01/16 15:58:36 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <stdio.h>
-#include <stdarg.h>
 
-int	ft_printf(int n, ...)
+int add(int a, int b)
 {
-	va_list args;
-	int		i;
-	int		sum;
-
-	i = -1;
-	sum = 0;
-	va_start(args, n);
-	while (++i < n)
-		printf("%d\n", va_arg(args, int));
-	va_end(args);
-	return (sum);
+	return (a + b);
 }
 
-int main(void)
+int sub(int a, int b)
 {
-	//printf("Boonjour %s %*d ca va ?\n", "Theo", 15, 156);
-	printf("%s %0*d\n", "Bonjour les amis %s tout va bien ?", 20, 42);
-	return 0;
+	return (a - b);
+}
+
+int main()
+{
+	int (*f[2])(int, int);
+
+	f = {add, sub};
+	printf("%d\n", f[0](10, 5));
+	//ft_printf("%00000000-------999999999d Bonjour %000000000.i quelle age as tu %-*.*d as %.20s ?\n", "Salut ça farte ?");
+	//printf("%999999999d\n", ft_pow(2, 2));
+	//printf("%.2147483647d\n", 50);
+	//ft_printf("%.2147483647x\n", "Labase");
+	return (0);
 }
