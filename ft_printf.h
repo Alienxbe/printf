@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 10:17:20 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/18 21:06:09 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/19 00:39:23 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	pft_isactive(int flags, int flag);
 ** Print convertion functions
 */
 
+int pft_printconversion(int flags);
 int pft_type_c(int flags);
 
 #endif

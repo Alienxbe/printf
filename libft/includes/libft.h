@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 15:46:33 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/18 19:56:35 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/19 00:48:53 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int				ft_lstsize(t_list *lst);
 
 int				ft_pow(int nb, int pow);
 int				ft_intsize(int n, int c);
-int 			ft_index(const char *s, char c);
-void 			ft_putmultchar_fd(char c, int n, int fd);
+int				ft_index(const char *s, char c);
+void			ft_putmultchar_fd(char c, int n, int fd);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 10:33:35 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/14 10:35:58 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/19 00:49:15 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_index(const char *s, char c)
+int	ft_index(const char *s, char c)
 {
 	int i;
 
