@@ -44,7 +44,7 @@ The first optional field in a conversion specification contains flag directives,
 | Flag | Description |
 | --- | --- |
 | `-` | Left justify |
-| `0` | Pad with leading `0`. </br>If `0` is specified for an integer format and a precision specification is also present, the `0` is ignored |
+| `0` | Pad with leading `0`. </br>Flag `0` is ignored when flag `-` is present |
 
 ### Width specification
 
