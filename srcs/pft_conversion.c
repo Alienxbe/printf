@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:24:08 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/18 14:36:48 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/18 21:06:46 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,28 @@ static int	pft_encode_type(const char c)
 {
 	const char	*type;
 
-	type = PF_TYPES;
+	type = PFT_TYPES;
 	if (ft_index(type, c) < 0)
-		return (PF_ERROR);
-	return (ft_pow(2, ft_index(type, c) + 6));
+		return (PFT_ERROR);
+	return (ft_pow(2, ft_index(type, c) + 7));
+}
+
+static int	pft_precision(const char **format, int *flags)
+{
+	int value;
+
+	value = 0;
+	while (**format && *++*format == '0')
+	{
+		*flags += PFT_PREC_ZERO;
+		if (*((*format) + 1) == '*')
+			*flags += PFT_ERROR;
+	}
+	*flags += (**format == '*') ? PFT_PREC_VAR : PFT_PREC_N;
+	value = ft_atoi(*format);
+	if (**format)
+		*format += (**format == '*') ? 1 : ft_intsize(ft_atoi(*format), 0);
+	return (value);
 }
 
 int			pft_conversion(const char **format)
@@ -36,19 +54,13 @@ int			pft_conversion(const char **format)
 	}
 	if (ft_isdigit(**format) || **format == '*')
 	{
+		if (ft_isdigit(**format))
+			g_width = ft_atoi(*format);
 		flags += (**format == '*') ? PFT_WIDTH_VAR : PFT_WIDTH_N;
 		*format += (**format == '*') ? 1 : ft_intsize(ft_atoi(*format), 0);
 	}
-	if (**format == '.' && (*(*format + 1) == '*' || ft_isdigit(*(*format + 1))))
-	{
-		while (*++*format == '0')
-		{
-			flags += !pft_isactive(flags, PFT_FLAG_ZERO);
-			if (*((*format) + 1) == '*')
-				flags += 8192;
-		}
-		flags += (**format == '*') ? PFT_PREC_VAR  : PFT_PREC_N;
-		*format += (**format == '*') ? 1 : ft_intsize(ft_atoi(*format), 0);
-	}
+	if (**format == '.')
+		g_prec = pft_precision(format, &flags);
+
 	return (flags + pft_encode_type(**format));
 }

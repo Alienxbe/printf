@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/14 09:05:23 by mykman            #+#    #+#              #
-#    Updated: 2021/01/16 10:28:40 by mykman           ###   ########.fr        #
+#    Updated: 2021/01/18 19:56:23 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,8 @@ SRCS		=	ft_memset.c \
 				ft_lstclear.c \
 				ft_lstiter.c \
 				ft_lstmap.c \
-				ft_pow.c
+				ft_pow.c \
+				ft_putmultchar_fd.c
 
 OBJS		=	$(addprefix srcs/, ${SRCS:.c=.o})
 
