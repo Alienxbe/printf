@@ -3,7 +3,7 @@
 clear
 make
 
-echo "\nOutput : "
+echo Output :
 gcc -Wall -Wextra -Werror main.c libftprintf.a
 ./a.out
 rm a.out

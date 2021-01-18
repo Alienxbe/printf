@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 15:46:33 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/16 10:28:11 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/18 09:02:06 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 int				ft_lstsize(t_list *lst);
-
 
 /*
 ** ---- Additional Functions ----

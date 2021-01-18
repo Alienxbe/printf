@@ -1,66 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion.c                                    :+:      :+:    :+:   */
+/*   pft_conversion.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:24:08 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/16 15:39:47 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/18 14:36:48 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-** 2**0		| 1		: 0
-** 2**1		| 2		: -
-** 2**2		| 4		: width
-** 2**3		| 8		: precision
-** 2**4		| 16	: c
-** 2**5		| 32	: s
-** 2**6		| 64	: p
-** 2**7		| 128	: d
-** 2**8		| 256	: i
-** 2**9		| 512	: u
-** 2**10	| 1024	: x
-** 2**11	| 2048	: X
-** 2**12	| 4096	: %
-** 2**13	| 8192	: ERROR
-*/
-
-static int	ft_type(const char c)
+static int	pft_encode_type(const char c)
 {
 	const char	*type;
 
-	type = "cspdiuxX%";
+	type = PF_TYPES;
 	if (ft_index(type, c) < 0)
-		return (8192);
-	return (ft_pow(2, ft_index(type, c) + 4));
+		return (PF_ERROR);
+	return (ft_pow(2, ft_index(type, c) + 6));
 }
 
-int			ft_conversion(const char **format)
+int			pft_conversion(const char **format)
 {
-	int out;
+	int flags;
 
-	out = 0;
+	flags = 0;
+	if (!*format)
+		return (PFT_ERROR);
 	while (**format == '-' || **format == '0')
 	{
-		out = (**format == '0' && !out) ? 1 : out;
-		out = (*(*format)++ == '-') ? 2 : out;
+		flags = (**format == '0' && !flags) ? PFT_FLAG_ZERO : flags;
+		flags = (*(*format)++ == '-') ? PFT_FLAG_MINUS : flags;
 	}
 	if (ft_isdigit(**format) || **format == '*')
 	{
-		out += 4;
+		flags += (**format == '*') ? PFT_WIDTH_VAR : PFT_WIDTH_N;
 		*format += (**format == '*') ? 1 : ft_intsize(ft_atoi(*format), 0);
 	}
-	if (**format == '.')
+	if (**format == '.' && (*(*format + 1) == '*' || ft_isdigit(*(*format + 1))))
 	{
 		while (*++*format == '0')
+		{
+			flags += !pft_isactive(flags, PFT_FLAG_ZERO);
 			if (*((*format) + 1) == '*')
-				out += 8192;
-		out += 8;
+				flags += 8192;
+		}
+		flags += (**format == '*') ? PFT_PREC_VAR  : PFT_PREC_N;
 		*format += (**format == '*') ? 1 : ft_intsize(ft_atoi(*format), 0);
 	}
-	return (out + ft_type(**format));
+	return (flags + pft_encode_type(**format));
 }
