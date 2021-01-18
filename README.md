@@ -32,7 +32,7 @@ Usage :
 | `s` | - | ✅ | ✅ | Max number of char printed |
 | `d`, `i`, `u`, `x`, `X` | ✅ | ✅ | ✅ | Work like `0` with width |
 
-✅ : Working as usual
+`✅` : Working as usual
 
 ### Flag directives
 
