@@ -26,7 +26,7 @@ Usage :
 
 #### How types work with specifiers
 
-|  | `0` | `-` | width | precision |
+| Format specifier | `0` | `-` | width | precision |
 | --- | :---: | :---: | :---: | --- |
 | `c`, `p` | ⚠️ | ✅ | ✅ | ⚠️ |
 | `s` | ⚠️ | ✅ | ✅ | Max number of char printed |
