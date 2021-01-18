@@ -33,7 +33,7 @@ The first optional field in a conversion specification contains flag directives,
 | Flag | Description |
 | --- | --- |
 | `-` | Left justify |
-| `0` | Pad with leading `0` |
+| `0` | Pad with leading `0`. </br>If `0` is specified for an integer format and a precision specification is also present, the `0` is ignored |
 
 ### Width specification
 
@@ -64,7 +64,7 @@ printf( "%.*f", 3, 3.14159265 ); /* 3.142 output */
 | Type | Meaning | Default |
 | --- | --- | --- |
 | `c` | The precision has no effect. | Character is printed |
-| `d`, `i`, `o`, `u`, `x`, `X` | The precision specifies the minimum number of digits to be printed. If the number of digits in the argument is less than precision, the output value is padded on the left with zeros. | Default precision is 1 |
+| `d`, `i`, `u`, `x`, `X` | The precision specifies the minimum number of digits to be printed. If the number of digits in the argument is less than precision, the output value is padded on the left with zeros. | Default precision is 1 |
 | `s` | The precision specifies the maximum number of characters to be printed. | Characters are printed until a null character is found |
 
 ## Sources
