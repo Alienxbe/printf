@@ -6,13 +6,27 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:07:15 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/18 21:05:50 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/19 00:46:31 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	pft_isactive(int flags, int flag)
+static char	pft_type(int flags)
+{
+	const char	*type;
+	int			i;
+
+	type = PFT_TYPES;
+	i = 0;
+	if (flags >= PFT_ERROR)
+		return ('E');
+	while (flags >= ft_pow(2, i + 8))
+		i++;
+	return (type[i]);
+}
+
+int			pft_isactive(int flags, int flag)
 {
 	int i;
 
@@ -29,7 +43,9 @@ int	pft_isactive(int flags, int flag)
 	return (0);
 }
 
-int pft_printflag(int flags)
+int			pft_printconversion(int flags)
 {
-	return (flags);
+	if (pft_type(flags) == 'c')
+		return (pft_type_c(flags));
+	return (0);
 }

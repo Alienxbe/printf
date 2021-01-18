@@ -6,49 +6,33 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 17:47:31 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/18 21:37:24 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/19 00:17:10 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int pft_type_c(int flags)
+/*
+** "[CHAR][PRECISION(0)][C][CHAR]"
+*/
+
+int	pft_type_c(int flags)
 {
-	char	c;
-	int		bef;
-	int		aft;
-	int		prec;
+	int	prec;
+	int	n;
 
-	char ' ';
+	prec = 0;
+	n = 0;
+	if (pft_isactive(flags, PFT_WIDTH_N) || pft_isactive(flags, PFT_WIDTH_VAR))
+		n = (pft_isactive(flags, PFT_WIDTH_N)) ? g_width : va_arg(g_args, int);
 	if (pft_isactive(flags, PFT_PREC_N) || pft_isactive(flags, PFT_PREC_VAR))
-	{
-
-	}
-	if (pft_isactive(flags, PFT_FLAG_MINUS))
-	{
-		ft_putchar_fd((char)va_arg(g_args, int), 1);
-		ft_putmultchar_fd(' ', g_width - 1, 1);
-		return (flags);
-	}
-	c = (pft_isactive(flags, PFT_FLAG_ZERO)) ? '0' : ' ';
-	ft_putmultchar_fd(c, g_width - 1, 1);
-	ft_putchar_fd((char)va_arg(g_args, int), 1);
-
-
-	ft_putmultchar_fd(c, bef, 1);
+		prec = (pft_isactive(flags, PFT_PREC_N)) ? g_prec : va_arg(g_args, int);
+	prec = (prec <= 1) ? 0 : prec - 1;
+	n = (n <= prec + 1) ? 0 : n - (prec + 1);
+	ft_putmultchar_fd((pft_isactive(flags, PFT_FLAG_ZERO)) ? '0' : ' ',
+		n * !pft_isactive(flags, PFT_FLAG_MINUS), 1);
 	ft_putmultchar_fd('0', prec, 1);
 	ft_putchar_fd((char)va_arg(g_args, int), 1);
-	ft_putmultchar_fd(c, aft, 1);
-	return (flags);
+	ft_putmultchar_fd(' ', n * pft_isactive(flags, PFT_FLAG_MINUS), 1);
+	return (prec + n + 1);
 }
-
-SPACE = WIDTH - 1;
-CHAR  = ' '
-SI PRECISION:
-	PREC = NBR de '0' AVANT TYPE - 1;
-SINON ZERO:
-	CHAR = '0';
-SI MOIN && PAS ZERO:
-	SPACE AFTER !
-
-"[CHAR][PRECISION(0)][C][CHAR]"

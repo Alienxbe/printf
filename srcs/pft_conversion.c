@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:24:08 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/18 21:06:46 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/19 00:37:38 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int			pft_conversion(const char **format)
 	int flags;
 
 	flags = 0;
-	if (!*format)
+	if (!++*format)
 		return (PFT_ERROR);
 	while (**format == '-' || **format == '0')
 	{
@@ -61,6 +61,5 @@ int			pft_conversion(const char **format)
 	}
 	if (**format == '.')
 		g_prec = pft_precision(format, &flags);
-
 	return (flags + pft_encode_type(**format));
 }
