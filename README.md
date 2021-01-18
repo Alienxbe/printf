@@ -24,6 +24,17 @@ Usage :
 | `X` | `unsigned int` | Unsigned hexadecimal integers (using "`ABCDEF`"). |
 | `%` | `NONE` | Display the `%` character |
 
+#### How types work with specifiers
+
+| Format specifier | `0` | `-` | width | precision |
+| --- | :---: | :---: | :---: | --- |
+| `c`, `p` | ⚠️ | ✅ | ✅ | ⚠️ |
+| `s` | ⚠️ | ✅ | ✅ | Max number of char printed |
+| `d`, `i`, `u`, `x`, `X` | ✅ | ✅ | ✅ | Work like `0` with width |
+
+✅ : Working as usual</br>
+⚠️ : Warning
+
 ### Flag directives
 
 The first optional field in a conversion specification contains flag directives, zero or more flag characters that specify output justification and control output of signs, blanks, leading zeros, decimal points, and octal and hexadecimal prefixes. More than one flag directive may appear in a conversion specification, and the flag characters can appear in any order.
@@ -33,7 +44,7 @@ The first optional field in a conversion specification contains flag directives,
 | Flag | Description |
 | --- | --- |
 | `-` | Left justify |
-| `0` | Pad with leading `0`. </br>If `0` is specified for an integer format and a precision specification is also present, the `0` is ignored |
+| `0` | Pad with leading `0`. </br>Flag `0` is ignored when flag `-` is present |
 
 ### Width specification
 
