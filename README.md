@@ -28,11 +28,12 @@ Usage :
 
 |  | `0` | `-` | width | precision |
 | --- | :---: | :---: | :---: | --- |
-| `c`, `p` | - | ✅ | ✅ | - |
-| `s` | - | ✅ | ✅ | Max number of char printed |
+| `c`, `p` | ⚠️ | ✅ | ✅ | ⚠️ |
+| `s` | ⚠️ | ✅ | ✅ | Max number of char printed |
 | `d`, `i`, `u`, `x`, `X` | ✅ | ✅ | ✅ | Work like `0` with width |
 
-`✅` : Working as usual
+✅ : Working as usual</br>
+⚠️ : Warning
 
 ### Flag directives
 
