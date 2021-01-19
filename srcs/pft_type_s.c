@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pft_type_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 15:54:10 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 09:32:17 by mykman           ###   ########.fr       */
+/*   Created: 2021/01/19 09:34:26 by mykman            #+#    #+#             */
+/*   Updated: 2021/01/19 09:35:32 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int main()
+int	pft_type_s(int flags)
 {
-	//ft_printf("%00000000-------999999999d Bonjour %000000000.i quelle age as tu %-*.*d as %.20s ?\n", "Salut ça farte ?");
-	//printf("%999999999d\n", ft_pow(2, 2));
-	//printf("|%5c|\n", 'A');
-	//printf("printf : %d\n", printf("La bite est : %c\n", 'm'));
-	printf("ft_printf : %.*d\n", 5, 1500);
-	//ft_printf("Bonjour %-10.0*c|\n", 5, '1');
-	return (0);
+	return ();
 }
