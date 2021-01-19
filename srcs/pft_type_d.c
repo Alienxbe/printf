@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 13:47:44 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 19:08:24 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/19 20:20:32 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ int			pft_type_d(int flags)
 		!(pft_isactive(flags, PFT_PREC_N) ||
 			pft_isactive(flags, PFT_PREC_VAR))) ? '0' : ' ',
 		w * !pft_isactive(flags, PFT_FLAG_MINUS), 1);
-	if (n < 0)
-		ft_putchar_fd('-', 1);
+	ft_putmultchar_fd('-', n < 0, 1);
 	ft_putmultchar_fd('0', p, 1);
 	putunbr_fd(un, 1);
 	ft_putmultchar_fd(' ', w * pft_isactive(flags, PFT_FLAG_MINUS), 1);
