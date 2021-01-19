@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 10:17:20 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 00:39:23 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/19 19:54:28 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,20 @@
 ** 2**16	| 65536	: ERROR
 */
 
-# define PFT_TYPES		"cspdiuxX%"
-# define PFT_FLAG_ZERO	1
-# define PFT_FLAG_MINUS	2
-# define PFT_WIDTH_N	4
-# define PFT_WIDTH_VAR	8
-# define PFT_PREC_N		16
-# define PFT_PREC_VAR	32
-# define PFT_PREC_ZERO	64
-# define PFT_ERROR		65536
+# define PFT_FLAG_ZERO		1
+# define PFT_FLAG_MINUS		2
+# define PFT_WIDTH_N		4
+# define PFT_WIDTH_VAR		8
+# define PFT_PREC_N			16
+# define PFT_PREC_VAR		32
+# define PFT_PREC_ZERO		64
+# define PFT_ERROR			65536
+
+# define PFT_TYPES			"cspdiuxX%"
+# define PFT_NULL_STR		"(null)"
+# define PFT_BASE_DECI		"0123456789"
+# define PFT_BASE_HEXA_L	"0123456789abcdef"
+# define PFT_BASE_HEXA_U	"0123456789ABCDEF"
 
 va_list g_args;
 int		g_width;
@@ -65,5 +70,8 @@ int	pft_isactive(int flags, int flag);
 
 int pft_printconversion(int flags);
 int pft_type_c(int flags);
+int pft_type_s(int flags);
+int	pft_type_d(int flags);
+int	pft_type_u_base(int flags, char *base);
 
 #endif

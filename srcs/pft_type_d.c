@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pft_type_s.c                                       :+:      :+:    :+:   */
+/*   pft_type_d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 09:34:26 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 19:11:49 by mykman           ###   ########.fr       */
+/*   Created: 2021/01/19 13:47:44 by mykman            #+#    #+#             */
+/*   Updated: 2021/01/19 19:08:24 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-** [CHAR][STRING[:prec char]][CHAR]
-*/
-
-int	pft_type_s(int flags)
+static void	putunbr_fd(unsigned int n, int fd)
 {
-	char	*s;
-	int		p;
-	int		w;
+	if (n > 9)
+		putunbr_fd(n / 10, fd);
+	ft_putchar_fd('0' + n % 10, fd);
+}
+
+int			pft_type_d(int flags)
+{
+	int				p;
+	int				w;
+	int				n;
+	unsigned int	un;
 
 	p = 0;
 	w = 0;
@@ -28,15 +32,18 @@ int	pft_type_s(int flags)
 		w = (pft_isactive(flags, PFT_WIDTH_N)) ? g_width : va_arg(g_args, int);
 	if (pft_isactive(flags, PFT_PREC_N) || pft_isactive(flags, PFT_PREC_VAR))
 		p = (pft_isactive(flags, PFT_PREC_N)) ? g_prec : va_arg(g_args, int);
-	s = (char *)va_arg(g_args, char *);
-	s = (!s) ? PFT_NULL_STR : s;
-	p = (p > (int)ft_strlen(s)) ? (int)ft_strlen(s) : p;
-	if (!pft_isactive(flags, PFT_PREC_N) && !pft_isactive(flags, PFT_PREC_VAR))
-		p = ft_strlen(s);
-	w = (p < w) ? w - p : w;
-	ft_putmultchar_fd((pft_isactive(flags, PFT_FLAG_ZERO)) ? '0' : ' ',
+	n = (int)va_arg(g_args, int);
+	un = (n < 0) ? -n : n;
+	p = (p > ft_intsize(un, 0)) ? p - ft_intsize(un, 0) : 0;
+	w = (w > p + ft_intsize(n, 0)) ? w - (p + ft_intsize(n, 0)) : 0;
+	ft_putmultchar_fd((pft_isactive(flags, PFT_FLAG_ZERO) &&
+		!(pft_isactive(flags, PFT_PREC_N) ||
+			pft_isactive(flags, PFT_PREC_VAR))) ? '0' : ' ',
 		w * !pft_isactive(flags, PFT_FLAG_MINUS), 1);
-	write(1, s, p);
+	if (n < 0)
+		ft_putchar_fd('-', 1);
+	ft_putmultchar_fd('0', p, 1);
+	putunbr_fd(un, 1);
 	ft_putmultchar_fd(' ', w * pft_isactive(flags, PFT_FLAG_MINUS), 1);
-	return (w + p);
+	return (p + w + ft_intsize(n, 0));
 }

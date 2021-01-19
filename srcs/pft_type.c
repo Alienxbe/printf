@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:07:15 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 00:46:31 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/19 20:00:12 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,20 @@ int			pft_printconversion(int flags)
 {
 	if (pft_type(flags) == 'c')
 		return (pft_type_c(flags));
+	else if (pft_type(flags) == 's')
+		return (pft_type_s(flags));
+	else if (pft_type(flags) == 'd' || pft_type(flags) == 'i')
+		return (pft_type_d(flags));
+	else if (pft_type(flags) == 'u')
+		return (pft_type_u_base(flags, PFT_BASE_DECI));
+	else if (pft_type(flags) == 'x')
+		return (pft_type_u_base(flags, PFT_BASE_HEXA_L));
+	else if (pft_type(flags) == 'X')
+		return (pft_type_u_base(flags, PFT_BASE_HEXA_U));
+	else if (pft_type(flags) == '%')
+	{
+		ft_putchar_fd('%', 1);
+		return (1);
+	}
 	return (0);
 }
