@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 13:47:44 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 20:20:32 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/20 12:07:13 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			pft_type_d(int flags)
 		w = (pft_isactive(flags, PFT_WIDTH_N)) ? g_width : va_arg(g_args, int);
 	if (pft_isactive(flags, PFT_PREC_N) || pft_isactive(flags, PFT_PREC_VAR))
 		p = (pft_isactive(flags, PFT_PREC_N)) ? g_prec : va_arg(g_args, int);
-	n = (int)va_arg(g_args, int);
+	n = va_arg(g_args, int);
 	un = (n < 0) ? -n : n;
 	p = (p > ft_intsize(un, 0)) ? p - ft_intsize(un, 0) : 0;
 	w = (w > p + ft_intsize(n, 0)) ? w - (p + ft_intsize(n, 0)) : 0;

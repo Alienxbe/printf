@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 15:54:10 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 20:30:41 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/20 13:12:17 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 int	main(void)
 {
-	ft_printf("|%5s|\n", "goesover");
-	//printf("|%012.11d|\n", -21);
+	//char *s = "LA";
+	char s = '5';
+
+	ft_printf("|%x|\n", &s);
+	printf("|%#lx = %p|\n", &s, &s);
 	return (0);
 }

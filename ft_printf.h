@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 10:17:20 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 19:54:28 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/20 10:53:50 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ int pft_type_c(int flags);
 int pft_type_s(int flags);
 int	pft_type_d(int flags);
 int	pft_type_u_base(int flags, char *base);
+int	pft_type_pct(int flags);
 
 #endif

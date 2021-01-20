@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 19:17:56 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 19:47:34 by mykman           ###   ########.fr       */
+/*   Updated: 2021/01/20 12:27:26 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			pft_type_u_base(int flags, char *base)
 {
 	int				p;
 	int				w;
-	int				n;
+	unsigned long	n;
 
 	p = 0;
 	w = 0;
