@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/14 09:08:58 by mykman            #+#    #+#              #
-#    Updated: 2021/01/20 10:54:28 by mykman           ###   ########.fr        #
+#    Updated: 2021/01/22 13:51:10 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRCS	=	ft_printf.c \
 			pft_type_s.c \
 			pft_type_d.c \
 			pft_type_u_base.c \
-			pft_type_pct.c
+			pft_type_pct.c \
+			pft_type_p.c
 
 OBJS	=	$(addprefix srcs/, ${SRCS:.c=.o})
 
