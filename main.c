@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 15:54:10 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/22 14:05:07 by mykman           ###   ########.fr       */
+/*   Updated: 2021/02/24 16:14:52 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 int	main(void)
 {
-	//char *s = "LA";
-	char s = '5';
-
-	ft_printf("|%.15p|\n", &s);
-	printf("|%.15p|\n", &s);
+	char str[] = "Bonjour";
+	ft_printf("'%.-1s'\n", 0);
+	printf("'%.-1s'\n", 0);
+	printf("'%.*s'\n", 1, 0);
 	return (0);
 }

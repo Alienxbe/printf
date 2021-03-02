@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:51:02 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/20 10:55:55 by mykman           ###   ########.fr       */
+/*   Updated: 2021/02/24 15:10:43 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	pft_type_pct(int flags)
 {
-		int	w;
+	int	w;
 
 	w = 0;
 	if (pft_isactive(flags, PFT_WIDTH_N) || pft_isactive(flags, PFT_WIDTH_VAR))

@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 13:47:44 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/20 12:07:13 by mykman           ###   ########.fr       */
+/*   Updated: 2021/02/24 15:28:59 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int			pft_type_d(int flags)
 		p = (pft_isactive(flags, PFT_PREC_N)) ? g_prec : va_arg(g_args, int);
 	n = va_arg(g_args, int);
 	un = (n < 0) ? -n : n;
-	p = (p > ft_intsize(un, 0)) ? p - ft_intsize(un, 0) : 0;
-	w = (w > p + ft_intsize(n, 0)) ? w - (p + ft_intsize(n, 0)) : 0;
+	p = (p > ft_intsize(un, un == 0)) ? p - ft_intsize(un, un == 0) : 0;
+	w = (w > p + ft_intsize(n, n == 0)) ? w - (p + ft_intsize(n, n == 0)) : 0;
 	ft_putmultchar_fd((pft_isactive(flags, PFT_FLAG_ZERO) &&
 		!(pft_isactive(flags, PFT_PREC_N) ||
 			pft_isactive(flags, PFT_PREC_VAR))) ? '0' : ' ',
@@ -44,5 +44,5 @@ int			pft_type_d(int flags)
 	ft_putmultchar_fd('0', p, 1);
 	putunbr_fd(un, 1);
 	ft_putmultchar_fd(' ', w * pft_isactive(flags, PFT_FLAG_MINUS), 1);
-	return (p + w + ft_intsize(n, 0));
+	return (p + w + ft_intsize(n, n == 0));
 }
