@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 13:49:03 by mykman            #+#    #+#             */
-/*   Updated: 2021/02/24 15:16:47 by mykman           ###   ########.fr       */
+/*   Updated: 2021/03/03 19:02:45 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,8 @@ int			pft_type_p_base(int flags, char *base)
 	int				w;
 	unsigned long	n;
 
-	p = 0;
-	w = 0;
-	if (pft_isactive(flags, PFT_WIDTH_N) || pft_isactive(flags, PFT_WIDTH_VAR))
-		w = (pft_isactive(flags, PFT_WIDTH_N)) ? g_width : va_arg(g_args, int);
-	if (pft_isactive(flags, PFT_PREC_N) || pft_isactive(flags, PFT_PREC_VAR))
-		p = (pft_isactive(flags, PFT_PREC_N)) ? g_prec : va_arg(g_args, int);
+	p = g_prec;
+	w = g_width;
 	n = va_arg(g_args, unsigned long);
 	p = (p > usize_base(n, base, 0)) ? p - usize_base(n, base, 0): 0;
 	w = (w > p + usize_base(n, base, 0)) ? w - (p + usize_base(n, base, 0) + 2) : 0;

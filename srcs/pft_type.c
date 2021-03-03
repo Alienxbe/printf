@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:07:15 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/22 13:52:49 by mykman           ###   ########.fr       */
+/*   Updated: 2021/03/03 18:33:32 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ int			pft_isactive(int flags, int flag)
 
 int			pft_printconversion(int flags)
 {
+	if (pft_isactive(flags, PFT_WIDTH_VAR))
+		g_width = va_arg(g_args, int);
+	if (pft_isactive(flags, PFT_PREC_VAR))
+		g_prec = va_arg(g_args, int);
 	if (pft_type(flags) == 'c')
 		return (pft_type_c(flags));
 	else if (pft_type(flags) == 'p')

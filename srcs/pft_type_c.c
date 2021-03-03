@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 17:47:31 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 14:19:32 by mykman           ###   ########.fr       */
+/*   Updated: 2021/03/03 18:42:13 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@ int	pft_type_c(int flags)
 {
 	int	w;
 
-	w = 0;
-	if (pft_isactive(flags, PFT_WIDTH_N) || pft_isactive(flags, PFT_WIDTH_VAR))
-		w = (pft_isactive(flags, PFT_WIDTH_N)) ? g_width : va_arg(g_args, int);
-	if (pft_isactive(flags, PFT_PREC_VAR))
-		va_arg(g_args, int);
+	w = g_width;
 	w = (w <= 1) ? 0 : w - 1;
 	ft_putmultchar_fd((pft_isactive(flags, PFT_FLAG_ZERO)) ? '0' : ' ',
 		w * !pft_isactive(flags, PFT_FLAG_MINUS), 1);
