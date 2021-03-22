@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 10:17:20 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/22 13:50:55 by mykman           ###   ########.fr       */
+/*   Updated: 2021/03/22 18:15:53 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,11 @@
 # define PFT_PREC_VAR		32
 # define PFT_PREC_ZERO		64
 # define PFT_ERROR			65536
-
 # define PFT_TYPES			"cspdiuxX%"
 # define PFT_NULL_STR		"(null)"
 # define PFT_BASE_DECI		"0123456789"
 # define PFT_BASE_HEXA_L	"0123456789abcdef"
-# define PFT_BASE_HEXA_U	"0123456789ABCDEF"
+# define PFT_BASE_HEXA_U	"0123456789ABCDE"
 
 va_list g_args;
 int		g_width;
