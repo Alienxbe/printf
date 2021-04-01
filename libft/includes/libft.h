@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 15:46:33 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 19:34:17 by mykman           ###   ########.fr       */
+/*   Updated: 2021/04/01 20:10:28 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strnstr(const char *haystack, const char *needle,
-				size_t len);
+					size_t len);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *str);
 
@@ -70,7 +70,7 @@ void			ft_putnbr_fd(int n, int fd);
 ** ---- Bonus ----
 */
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -79,7 +79,7 @@ typedef struct	s_list
 t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-				void (*del)(void *));
+					void (*del)(void *));
 void			ft_lstadd_front(t_list **alst, t_list *new);
 void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
@@ -88,12 +88,9 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 int				ft_lstsize(t_list *lst);
 
 /*
-** ---- Additional Functions ----
+** ---- PRINTF ----
 */
 
-int				ft_pow(int nb, int pow);
 int				ft_intsize(int n, int c);
-int				ft_index(const char *s, char c);
-void			ft_putmultchar_fd(char c, int n, int fd);
 
 #endif

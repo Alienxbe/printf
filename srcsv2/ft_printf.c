@@ -5,37 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/01 17:21:31 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/01 20:23:03 by mykman           ###   ########.fr       */
+/*   Created: 2021/01/14 09:52:47 by mykman            #+#    #+#             */
+/*   Updated: 2021/01/19 00:44:24 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
-	t_tag	*tag;
+	int flags;
+	int size;
 
-	va_start(args, format);
+	va_start(g_args, format);
+	size = 0;
 	while (*format)
 	{
+		g_width = 0;
+		g_prec = 0;
 		if (*format == '%')
 		{
-			tag = ft_conversion(&format, args);
-			if (!tag)
-				return (MALLOC_ERROR);
-			printf("\nwidth : %d\nFlags : %d\n", tag->width, tag->flags);
-			free(tag);
-			ft_putchar_fd('s', 1);
+			flags = pft_conversion(&format);
+			size += pft_printconversion(flags);
+			if (pft_isactive(flags, PFT_ERROR))
+				return (-1);
 		}
 		else
 		{
 			ft_putchar_fd(*format, 1);
+			size++;
 		}
 		format++;
 	}
-	va_end(args);
-	return (0);
+	va_end(g_args);
+	return (size);
 }

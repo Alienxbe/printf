@@ -1,3 +1,0 @@
-- function to get prec and with if '*' is used. Should be called before
-	pft_printconvertion
-- function to get custom types in vargs

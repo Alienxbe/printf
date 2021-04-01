@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/01/14 09:05:23 by mykman            #+#    #+#              #
-#    Updated: 2021/01/19 11:48:20 by mykman           ###   ########.fr        #
+#    Created: 2021/04/01 17:14:32 by mykman            #+#    #+#              #
+#    Updated: 2021/04/01 20:11:13 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,8 +41,6 @@ SRCS		=	ft_memset.c \
 				ft_strlcpy.c \
 				ft_strlcat.c \
 				ft_strnstr.c \
-				ft_intsize.c \
-				ft_index.c \
 				ft_atoi.c \
 				ft_calloc.c \
 				ft_strdup.c \
@@ -65,8 +63,7 @@ SRCS		=	ft_memset.c \
 				ft_lstclear.c \
 				ft_lstiter.c \
 				ft_lstmap.c \
-				ft_pow.c \
-				ft_putmultchar_fd.c
+				ft_intsize.c
 
 OBJS		=	$(addprefix srcs/, ${SRCS:.c=.o})
 
@@ -77,11 +74,11 @@ CFLAGS		=	-Wall -Wextra -Werror
 
 .c.o:
 	${CC} ${CFLAGS} -c -I./includes $< -o ${<:.c=.o}
-	@echo "${YELLOW}[${NAME}]\tCompilation of $<...${RESET}"
+	@echo "${YELLOW}Compilation of $<...${RESET}"
 
 $(NAME):	${OBJS}
 	@ar -rcs $@ $^
-	@echo "${GREEN}Library created : ${NAME}${RESET}"
+	@echo "${GREEN}Library created !${RESET}"
 
 all:		${NAME}
 
@@ -90,8 +87,7 @@ clean:
 	@echo "${PURPLE}Cleaning ojects.${RESET}"
 
 fclean:
-	@rm -f ${OBJS}
-	@rm -f ${NAME}
+	@rm -f ${OBJS} ${NAME}
 	@echo "${RED}Full clean.${RESET}"
 
 re:			fclean all

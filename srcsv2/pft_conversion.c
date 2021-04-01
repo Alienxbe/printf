@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:24:08 by mykman            #+#    #+#             */
-/*   Updated: 2021/01/19 00:37:38 by mykman           ###   ########.fr       */
+/*   Updated: 2021/04/01 19:36:25 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ int			pft_conversion(const char **format)
 	flags = 0;
 	if (!++*format)
 		return (PFT_ERROR);
-	while (**format == '-' || **format == '0')
+	while (**format == '-' || **format == '0') // getting flags
 	{
 		flags = (**format == '0' && !flags) ? PFT_FLAG_ZERO : flags;
 		flags = (*(*format)++ == '-') ? PFT_FLAG_MINUS : flags;
 	}
-	if (ft_isdigit(**format) || **format == '*')
+	if (ft_isdigit(**format) || **format == '*') // getting width
 	{
 		if (ft_isdigit(**format))
 			g_width = ft_atoi(*format);

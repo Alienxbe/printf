@@ -6,11 +6,11 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 20:34:49 by mykman            #+#    #+#             */
-/*   Updated: 2021/03/22 18:30:49 by mykman           ###   ########.fr       */
+/*   Updated: 2021/04/01 20:26:10 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "includes/ft_printf.h"
 #include <unistd.h>
 #include <stdio.h>
 
@@ -18,7 +18,7 @@
 ** typedef
 */
 
-typedef	enum	e_type
+/*typedef	enum	e_type
 {
 	ADD,
 	SUB,
@@ -66,16 +66,18 @@ t_operations	**init_opertations_table(void)
 	table[DIV] = &divi;
 	return (table);
 }
-
+*/
 int	main(void)
 {
-	t_operations **op_table;
+	/*t_operations **op_table;
 
 	op_table = init_opertations_table();
 
 	printf("%d\n", (*op_table[MUL])(10, 5));
 	
-	free(op_table);
+	free(op_table);*/
+
+	ft_printf("Bonjour les %0*c amis", 50);
 	return (0);
 }
 

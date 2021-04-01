@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 10:17:20 by mykman            #+#    #+#             */
-/*   Updated: 2021/03/22 18:15:53 by mykman           ###   ########.fr       */
+/*   Updated: 2021/04/01 19:51:24 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <stdio.h>
-# include "libft/includes/libft.h"
+# include "../libft/includes/libft.h"
 
 /*
 ** 2**0		| 1		: 0

@@ -5,15 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/04/01 20:00:35 by mykman            #+#    #+#              #
-#    Updated: 2021/04/01 20:01:57 by mykman           ###   ########.fr        #
+#    Created: 2021/01/14 09:08:58 by mykman            #+#    #+#              #
+#    Updated: 2021/01/22 13:51:10 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	ft_printf.c \
-			ft_conversion.c
+			pft_conversion.c \
+			pft_type.c \
+			pft_type_c.c \
+			pft_type_s.c \
+			pft_type_d.c \
+			pft_type_u_base.c \
+			pft_type_pct.c \
+			pft_type_p.c
 
-OBJS	=	$(addprefix srcs/, ${SRCS:.c=.o})
+OBJS	=	$(addprefix srcsv2/, ${SRCS:.c=.o})
 
 NAME	=	libftprintf.a
 LIBFT	=	./libft
@@ -22,7 +29,7 @@ CC		=	@gcc
 CFLAGS	=	-Wall -Wextra -Werror
 
 .c.o:
-	${CC} ${CFLAGS} -c -I./includes $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -c -I./includesv2 $< -o ${<:.c=.o}
 	@echo "[${NAME}]\t\tCompilation of $<..."
 
 ${NAME}:	${OBJS}
