@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:22:25 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/01 20:30:54 by mykman           ###   ########.fr       */
+/*   Updated: 2021/04/04 18:38:51 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 
 # define MALLOC_ERROR	-1
+# define PREC_ERROR		-2
 
 # define FLAG_ZERO		1
 # define FLAG_MINUS		2

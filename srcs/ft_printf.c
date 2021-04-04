@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:21:31 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/01 20:23:03 by mykman           ###   ########.fr       */
+/*   Updated: 2021/04/04 19:07:23 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ int	ft_printf(const char *format, ...)
 			tag = ft_conversion(&format, args);
 			if (!tag)
 				return (MALLOC_ERROR);
-			printf("\nwidth : %d\nFlags : %d\n", tag->width, tag->flags);
+			printf("\nConvertion detected !\n Flags: %d\n", tag->flags);
+			printf(" Width: %d\n", tag->width);
+			printf(" Prec: %d\n", tag->prec);
+			printf(" Type: %d\n", tag->type);
 			free(tag);
-			ft_putchar_fd('s', 1);
 		}
 		else
 		{

@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 15:46:33 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/01 20:10:28 by mykman           ###   ########.fr       */
+/*   Updated: 2021/04/04 18:47:27 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ int				ft_lstsize(t_list *lst);
 */
 
 int				ft_intsize(int n, int c);
+int 			ft_index(const char *s, char c);
 
 #endif
