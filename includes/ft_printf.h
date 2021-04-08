@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:22:25 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/04 18:38:51 by mykman           ###   ########.fr       */
+/*   Updated: 2021/04/08 18:33:55 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ typedef enum e_type
 	U_INT,
 	LC_HEXA,
 	UC_HEXA,
-	PCT
+	PCT,
+	LENGTH
 }				t_type;
 
 typedef struct s_tag
@@ -48,6 +49,8 @@ typedef struct s_tag
 	int		prec;
 	t_type	type;
 }				t_tag;
+
+typedef int		(t_print)(t_tag *, va_list);
 
 int	ft_printf(const char *format, ...);
 t_tag	*ft_conversion(const char **format, va_list args);

@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:55:45 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/04 19:07:42 by mykman           ###   ########.fr       */
+/*   Updated: 2021/04/08 18:28:31 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 static int	ft_get_flags(const char **format)
 {
 	int	flags;
+	int	pos;
 
 	flags = 0;
-	while (ft_strchr(FLAGS, **format))
+	pos = ft_strchr(FLAGS, **format)
+	while (pos)
 	{
-		if (**format == '0' && !flags)
-			flags = FLAG_ZERO;
-		if (*(*format)++ == '-')
-			flags = FLAG_MINUS;
+		flags = flags | (1 << pos);
+		pos = ft_strchr(FLAGS, *++*format);
 	}
 	return (flags);
 }
@@ -57,7 +57,7 @@ static int	ft_get_prec(const char **format, va_list args)
 		prec = va_arg(args, int);
 		(*format)++;
 	}
-	else 
+	else
 	{
 		prec = ft_atoi(*format);
 		while (ft_isdigit(**format))
@@ -70,7 +70,7 @@ t_tag	*ft_conversion(const char **format, va_list args)
 {
 	t_tag	*tag;
 
-	tag = (t_tag*)malloc(sizeof(t_tag));
+	tag = (t_tag *)malloc(sizeof(t_tag));
 	if (!tag)
 		return (NULL);
 	tag->type = NONE;
