@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:21:31 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/08 18:37:32 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/03 18:06:54 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_print	**init_type_table(void)
 {
 	t_print	**table;
 
-	table = malloc(sizeof(t_print *) * LENGHT);
+	table = malloc(sizeof(t_print *) * LENGTH);
 	if (!table)
 		return (NULL);
 	table[CHAR] = &ft_print_c;
@@ -53,6 +53,6 @@ int		ft_printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	free(type_table)
+	free(type_table);
 	return (0);
 }

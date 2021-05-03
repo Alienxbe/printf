@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:22:25 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/08 18:33:55 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/03 18:06:40 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ typedef int		(t_print)(t_tag *, va_list);
 
 int	ft_printf(const char *format, ...);
 t_tag	*ft_conversion(const char **format, va_list args);
+
+int	ft_print_c(t_tag *tag, va_list args);
 
 #endif

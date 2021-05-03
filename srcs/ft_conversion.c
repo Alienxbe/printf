@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:55:45 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/08 18:28:31 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/03 19:01:56 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static int	ft_get_flags(const char **format)
 {
-	int	flags;
-	int	pos;
+	int		flags;
+	char	*pos;
 
 	flags = 0;
-	pos = ft_strchr(FLAGS, **format)
+	pos = ft_strchr(FLAGS, **format);
 	while (pos)
 	{
-		flags = flags | (1 << pos);
+		flags |= 1 << (pos - FLAGS);
 		pos = ft_strchr(FLAGS, *++*format);
 	}
 	return (flags);
@@ -80,6 +80,13 @@ t_tag	*ft_conversion(const char **format, va_list args)
 	tag->width = ft_get_width(format, args);
 	tag->prec = ft_get_prec(format, args);
 	tag->type = (t_type)ft_index(TYPES, **format);
+	if (tag->width < 0)
+	{
+		tag->width = -tag->width;
+		tag->flags |= FLAG_MINUS;
+	}
+	if (tag->flags & FLAG_MINUS && tag->flags & FLAG_ZERO)
+		tag->flags ^= FLAG_ZERO;
 	if (tag->prec == PREC_ERROR)
 		tag->type = NONE;
 	return (tag);

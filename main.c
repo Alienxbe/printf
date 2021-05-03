@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 20:34:49 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/04 19:09:18 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/03 18:56:27 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,10 @@ int	main(void)
 	free(op_table);*/
 
 	//printf("Bonjour les %010.d amis", 50);
-	ft_printf("Hey salut %-0-.*s !\n", 0);
-	printf("%0s\n", "Oui la base");
+	/*ft_printf("Hey salut %-0-.*s !\n", 0);
+	printf("%0s\n", "Oui la base");*/
+	ft_printf("Salut toi %0*c !\n", -5, 'c');
+	printf("Salut toi %0*c !\n", -5, 'c');
 	return (0);
 }
 
