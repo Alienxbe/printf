@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:21:31 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/03 18:06:54 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/08 03:29:25 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int		ft_printf(const char *format, ...)
 			tag = ft_conversion(&format, args);
 			if (!tag)
 				return (MALLOC_ERROR);
-			(*(type_table[tag->type]))(tag, args);
+			if ((*(type_table[tag->type]))(tag, args) < 0)
+				return (MALLOC_ERROR); // Gerer erreur malloc ! (free)
 			free(tag);
 		}
 		else
