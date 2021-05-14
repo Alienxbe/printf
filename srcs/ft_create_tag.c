@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion.c                                    :+:      :+:    :+:   */
+/*   ft_create_tag.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:55:45 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/03 19:01:56 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/14 11:49:07 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_get_width(const char **format, va_list args)
 {
 	int	width;
 
-	width = NONE;
+	width = 0;
 	if (ft_isdigit(**format))
 	{
 		width = ft_atoi(*format);
@@ -45,13 +45,13 @@ static int	ft_get_width(const char **format, va_list args)
 	return (width);
 }
 
-static int	ft_get_prec(const char **format, va_list args)
+static int	ft_get_prec(const char **format, va_list args, t_tag *tag)
 {
 	int	prec;
 
-	prec = PREC_ERROR;
 	if (**format != '.')
-		return (NONE);
+		return (1);
+	tag->flags |= FLAG_PRECISION;
 	if (*++*format == '*')
 	{
 		prec = va_arg(args, int);
@@ -66,7 +66,7 @@ static int	ft_get_prec(const char **format, va_list args)
 	return (prec);
 }
 
-t_tag	*ft_conversion(const char **format, va_list args)
+t_tag	*ft_create_tag(const char **format, va_list args)
 {
 	t_tag	*tag;
 
@@ -78,7 +78,7 @@ t_tag	*ft_conversion(const char **format, va_list args)
 		return (tag);
 	tag->flags = ft_get_flags(format);
 	tag->width = ft_get_width(format, args);
-	tag->prec = ft_get_prec(format, args);
+	tag->prec = ft_get_prec(format, args, tag);
 	tag->type = (t_type)ft_index(TYPES, **format);
 	if (tag->width < 0)
 	{
@@ -87,7 +87,5 @@ t_tag	*ft_conversion(const char **format, va_list args)
 	}
 	if (tag->flags & FLAG_MINUS && tag->flags & FLAG_ZERO)
 		tag->flags ^= FLAG_ZERO;
-	if (tag->prec == PREC_ERROR)
-		tag->type = NONE;
 	return (tag);
 }

@@ -6,13 +6,13 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 13:26:55 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/01 20:12:53 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/14 12:00:19 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int n, int minsize)
 {
 	char			*str;
 	unsigned int	un;
@@ -20,7 +20,9 @@ char	*ft_itoa(int n)
 
 	un = n;
 	size = ft_intsize(n, 0) + 1;
-	if (!n)
+	if (minsize + 1 > size)
+		size = minsize + 1;
+	if ((!n && !(size == minsize + 1)) || (size == minsize + 1 && n < 0))
 		size++;
 	str = (char *)ft_calloc(sizeof(char), size);
 	if (!str)

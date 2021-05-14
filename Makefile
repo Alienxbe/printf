@@ -6,14 +6,18 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/01 20:00:35 by mykman            #+#    #+#              #
-#    Updated: 2021/05/08 03:31:00 by mykman           ###   ########.fr        #
+#    Updated: 2021/05/14 10:44:56 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	ft_printf.c \
-			ft_conversion.c \
+			ft_create_tag.c \
+			ft_print_type.c \
 			ft_type_c.c \
-			ft_type_s.c
+			ft_type_s.c \
+			ft_type_p.c \
+			ft_type_d.c \
+			ft_type_pct.c
 
 OBJS	=	$(addprefix srcs/, ${SRCS:.c=.o})
 

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_ctoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 09:19:53 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/14 08:56:27 by mykman           ###   ########.fr       */
+/*   Created: 2021/05/14 03:22:03 by mykman            #+#    #+#             */
+/*   Updated: 2021/05/14 03:28:18 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_ctoa(char c)
 {
-	size_t	size;
-	char	*ptr;
+	char *s;
 
-	if (!s)
-		return (NULL);
-	size = (size_t)(ft_strlen(s) + 1);
-	ptr = malloc(sizeof(*ptr) * size);
-	if (!ptr)
-		return (NULL);
-	return (ft_memcpy(ptr, s, size));
+	s = (char *)ft_calloc(sizeof(char), 2);
+	if (s)
+		*s = c;
+	return (s);
 }

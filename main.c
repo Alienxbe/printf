@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 20:34:49 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/08 03:30:47 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/14 11:46:43 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int	main(void)
 {
-	//ft_printf("Salut toi, %s !\n", "Théo");
-	printf("Salut à toi %010s !\n", "Theo");
+	printf("|%10.3d|\n", 3443);
+	printf("|%s|\n", ft_itoa(0, 2));
 	return (0);
 }
 

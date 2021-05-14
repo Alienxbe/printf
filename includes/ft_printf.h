@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:22:25 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/08 03:30:42 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/14 11:14:41 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@
 # include "../libft/includes/libft.h" 
 
 
-# define MALLOC_ERROR	-1
-# define PREC_ERROR		-2
+# define MALLOC_ERROR		-1
+# define TAG_BUILD_ERROR	-2
 
-# define FLAG_ZERO		1
-# define FLAG_MINUS		2
-# define FLAGS			"0-"
-# define TYPES			"cspdiuxX%"
+# define FLAG_ZERO			1
+# define FLAG_MINUS			2
+# define FLAG_PRECISION		4
+# define FLAGS				"0-p"
+# define TYPES				"cspdiuxX%"
+# define NULL_STR			"(null)"
 
 
 typedef enum e_type
@@ -53,9 +55,13 @@ typedef struct s_tag
 typedef int		(t_print)(t_tag *, va_list);
 
 int	ft_printf(const char *format, ...);
-t_tag	*ft_conversion(const char **format, va_list args);
+t_tag	*ft_create_tag(const char **format, va_list args);
 
+int	ft_print_type(t_tag *tag, char *s);
 int	ft_type_c(t_tag *tag, va_list args);
 int	ft_type_s(t_tag *tag, va_list args);
+int	ft_type_p(t_tag *tag, va_list args);
+int ft_type_d(t_tag *tag, va_list args);
+int	ft_type_pct(t_tag *tag, va_list args);
 
 #endif

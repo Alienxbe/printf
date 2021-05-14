@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 15:46:33 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/03 18:04:52 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/14 11:33:27 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(const char *s, char c);
-char			*ft_itoa(int n);
+char			*ft_itoa(int n, int minsize);
 char			*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 
 void			ft_putchar_fd(char c, int fd);
@@ -94,5 +94,6 @@ int				ft_lstsize(t_list *lst);
 int				ft_intsize(int n, int c);
 int 			ft_index(const char *s, char c);
 void			ft_padding(char c, int n);
+char			*ft_ctoa(char c);
 
 #endif

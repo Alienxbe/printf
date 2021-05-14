@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_type_pct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 09:19:53 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/14 08:56:27 by mykman           ###   ########.fr       */
+/*   Created: 2021/05/14 10:21:56 by mykman            #+#    #+#             */
+/*   Updated: 2021/05/14 10:44:05 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strdup(const char *s)
+int	ft_type_pct(t_tag *tag, va_list args)
 {
-	size_t	size;
-	char	*ptr;
-
-	if (!s)
-		return (NULL);
-	size = (size_t)(ft_strlen(s) + 1);
-	ptr = malloc(sizeof(*ptr) * size);
-	if (!ptr)
-		return (NULL);
-	return (ft_memcpy(ptr, s, size));
+	(void)args;
+	return (ft_print_type(tag, ft_ctoa('%')));
 }
