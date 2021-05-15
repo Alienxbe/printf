@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 10:34:29 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/14 10:46:30 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/15 07:45:26 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_type_p(t_tag *tag, va_list args)
 {
-	(void)tag;
-	(void)args;
+	
 	return (0);
 }

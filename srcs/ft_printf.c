@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:21:31 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/14 12:00:43 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/15 07:31:27 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ t_print	**init_type_table(void)
 	table[PTR] = &ft_type_p;
 	table[D_INT] = &ft_type_d;
 	table[I_INT] = &ft_type_d;
+	table[U_INT] = &ft_type_ubase;
+	table[LC_HEXA] = &ft_type_ubase;
+	table[UC_HEXA] = &ft_type_ubase;
 	table[PCT] = &ft_type_pct;
-	/*table[D_INT] = &ft_type_int;
-	table[I_INT] = &ft_type_int;*/
 	return (table);
 }
 

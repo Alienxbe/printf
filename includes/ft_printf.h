@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:22:25 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/14 11:14:41 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/15 07:30:14 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 # define FLAGS				"0-p"
 # define TYPES				"cspdiuxX%"
 # define NULL_STR			"(null)"
+# define BASE_DECI			"0123456789"
+# define BASE_HEXA_L		"0123456789abcdef"
+# define BASE_HEXA_U		"0123456789ABCDEF"
 
 
 typedef enum e_type
@@ -62,6 +65,7 @@ int	ft_type_c(t_tag *tag, va_list args);
 int	ft_type_s(t_tag *tag, va_list args);
 int	ft_type_p(t_tag *tag, va_list args);
 int ft_type_d(t_tag *tag, va_list args);
+int	ft_type_ubase(t_tag *tag, va_list args);
 int	ft_type_pct(t_tag *tag, va_list args);
 
 #endif
