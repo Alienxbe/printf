@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 20:34:49 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/15 07:29:05 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/24 13:09:29 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 
 int	main(void)
 {
-	printf("%x\n", 10);
+	int n = 10;
+	ft_printf("Len : %d\n", ft_printf("%p\n", &n));
+	ft_printf("Len : %d\n", printf("%p\n", &n));
 	return (0);
 }
 

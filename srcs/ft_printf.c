@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:21:31 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/15 07:31:27 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/24 13:08:42 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_print	**init_type_table(void)
 		return (NULL);
 	table[CHAR] = &ft_type_c;
 	table[STR] = &ft_type_s;
-	table[PTR] = &ft_type_p;
+	table[PTR] = &ft_type_ubase;
 	table[D_INT] = &ft_type_d;
 	table[I_INT] = &ft_type_d;
 	table[U_INT] = &ft_type_ubase;
@@ -45,7 +45,7 @@ int		ft_conversion(const char **format, t_print **type_table, va_list args)
 		free(tag);
 		return (TAG_BUILD_ERROR);
 	}
-	length = (*(type_table[tag->type]))(tag, args);
+	length = (*type_table[tag->type])(tag, args);
 	free(tag);
 	if (length < 0)
 		return (MALLOC_ERROR);

@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:22:25 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/15 07:30:14 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/21 02:46:46 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define FLAG_ZERO			1
 # define FLAG_MINUS			2
 # define FLAG_PRECISION		4
-# define FLAGS				"0-p"
+# define FLAGS				"0-P"
 # define TYPES				"cspdiuxX%"
 # define NULL_STR			"(null)"
 # define BASE_DECI			"0123456789"

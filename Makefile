@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/01 20:00:35 by mykman            #+#    #+#              #
-#    Updated: 2021/05/15 07:32:08 by mykman           ###   ########.fr        #
+#    Updated: 2021/05/21 01:39:50 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ SRCS	=	ft_printf.c \
 			ft_print_type.c \
 			ft_type_c.c \
 			ft_type_s.c \
-			ft_type_p.c \
 			ft_type_d.c \
 			ft_type_ubase.c \
 			ft_type_pct.c

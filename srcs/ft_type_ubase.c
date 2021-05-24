@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 06:55:14 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/15 07:34:16 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/21 01:45:45 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,24 @@
 
 int	ft_type_ubase(t_tag *tag, va_list args)
 {
-	char			*s;
-	unsigned int	n;
+	char	*s;
+	char	*tmp;
 
 	s = NULL;
-	n = (unsigned int)va_arg(args, unsigned int);
+	tmp = NULL;
 	if (tag->flags & FLAG_PRECISION && tag->flags & FLAG_ZERO)
 		tag->flags ^= FLAG_ZERO;
 	if (tag->type == U_INT)
-		s = ft_utoa_base(n, tag->prec, BASE_DECI);
+		s = ft_ultoa_base(va_arg(args, unsigned int), tag->prec, BASE_DECI);
 	else if (tag->type == LC_HEXA)
-		s = ft_utoa_base(n, tag->prec, BASE_HEXA_L);
+		s = ft_ultoa_base(va_arg(args, unsigned int), tag->prec, BASE_HEXA_L);
 	else if (tag->type == UC_HEXA)
-		s = ft_utoa_base(n, tag->prec, BASE_HEXA_U);
+		s = ft_ultoa_base(va_arg(args, unsigned int), tag->prec, BASE_HEXA_U);
+	else if (tag->type == PTR)
+	{
+		tmp = ft_ultoa_base(va_arg(args, unsigned long), tag->prec, BASE_HEXA_L);
+		s = ft_strjoin("0x", tmp);
+		free(tmp);
+	}
 	return (ft_print_type(tag, s));
 }
