@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:21:31 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/24 13:08:42 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/24 13:27:22 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_print	**init_type_table(void)
 	return (table);
 }
 
-int		ft_conversion(const char **format, t_print **type_table, va_list args)
+int	ft_conversion(const char **format, t_print **type_table, va_list args)
 {
 	t_tag	*tag;
 	int		length;
@@ -52,12 +52,12 @@ int		ft_conversion(const char **format, t_print **type_table, va_list args)
 	return (length);
 }
 
-int		ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	t_print	**type_table;
 	int		length;
-	int 	c_length;
+	int		c_length;
 
 	length = 0;
 	va_start(args, format);

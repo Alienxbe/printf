@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 03:22:03 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/14 03:28:18 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/24 13:30:52 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_ctoa(char c)
 {
-	char *s;
+	char	*s;
 
 	s = (char *)ft_calloc(sizeof(char), 2);
 	if (s)

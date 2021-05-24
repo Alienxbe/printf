@@ -6,13 +6,13 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 18:42:02 by mykman            #+#    #+#             */
-/*   Updated: 2021/04/04 18:46:54 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/24 13:31:22 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_index(const char *s, char c)
+int	ft_index(const char *s, char c)
 {
-	int i;
+	int	i;
 
 	if (s)
 	{

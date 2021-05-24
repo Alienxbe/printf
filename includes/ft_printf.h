@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:22:25 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/21 02:46:46 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/24 13:33:38 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include "../libft/includes/libft.h" 
-
 
 # define MALLOC_ERROR		-1
 # define TAG_BUILD_ERROR	-2
@@ -30,7 +29,6 @@
 # define BASE_DECI			"0123456789"
 # define BASE_HEXA_L		"0123456789abcdef"
 # define BASE_HEXA_U		"0123456789ABCDEF"
-
 
 typedef enum e_type
 {
@@ -57,15 +55,15 @@ typedef struct s_tag
 
 typedef int		(t_print)(t_tag *, va_list);
 
-int	ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
 t_tag	*ft_create_tag(const char **format, va_list args);
 
-int	ft_print_type(t_tag *tag, char *s);
-int	ft_type_c(t_tag *tag, va_list args);
-int	ft_type_s(t_tag *tag, va_list args);
-int	ft_type_p(t_tag *tag, va_list args);
-int ft_type_d(t_tag *tag, va_list args);
-int	ft_type_ubase(t_tag *tag, va_list args);
-int	ft_type_pct(t_tag *tag, va_list args);
+int		ft_print_type(t_tag *tag, char *s);
+int		ft_type_c(t_tag *tag, va_list args);
+int		ft_type_s(t_tag *tag, va_list args);
+int		ft_type_p(t_tag *tag, va_list args);
+int		ft_type_d(t_tag *tag, va_list args);
+int		ft_type_ubase(t_tag *tag, va_list args);
+int		ft_type_pct(t_tag *tag, va_list args);
 
 #endif
