@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 06:55:14 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/24 13:29:31 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/24 14:34:15 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_type_ubase(t_tag *tag, va_list args)
 
 	s = NULL;
 	tmp = NULL;
-	if (tag->flags & FLAG_PRECISION && tag->flags & FLAG_ZERO)
+	if (tag->flags & FLAG_PRECISION && tag->flags & FLAG_ZERO && tag->prec >= 0)
 		tag->flags ^= FLAG_ZERO;
 	if (tag->type == U_INT)
 		s = ft_ultoa_base(va_arg(args, unsigned int), tag->prec, BASE_DECI);
