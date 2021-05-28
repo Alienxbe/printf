@@ -6,7 +6,7 @@
 #    By: mykman <mykman@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/01 17:14:32 by mykman            #+#    #+#              #
-#    Updated: 2021/05/21 01:34:39 by mykman           ###   ########.fr        #
+#    Updated: 2021/05/28 02:11:34 by mykman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,8 @@ SRCS		=	ft_memset.c \
 				ft_index.c \
 				ft_padding.c \
 				ft_ctoa.c \
-				ft_ultoa_base.c
+				ft_ultoa_base.c \
+				ft_pow.c
 
 OBJS		=	$(addprefix srcs/, ${SRCS:.c=.o})
 
