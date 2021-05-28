@@ -6,13 +6,13 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 02:02:24 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/28 02:10:52 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/28 17:05:52 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_pow(int n, int pow)
+unsigned long	ft_pow(unsigned long n, int pow)
 {
 	if (pow <= 0)
 		return (1);
