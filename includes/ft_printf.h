@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:22:25 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/24 13:33:38 by mykman           ###   ########.fr       */
+/*   Updated: 2021/05/29 23:27:14 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <stdio.h>
-# include "../libft/includes/libft.h" 
+# include "../libft/includes/libft.h"
 
 # define MALLOC_ERROR		-1
 # define TAG_BUILD_ERROR	-2
@@ -24,9 +24,10 @@
 # define FLAG_MINUS			2
 # define FLAG_PRECISION		4
 # define FLAGS				"0-P"
-# define TYPES				"cspdiuxX%"
+# define TYPES				"cspdiuoxX%"
 # define NULL_STR			"(null)"
 # define BASE_DECI			"0123456789"
+# define BASE_OCTAL			"01234567"
 # define BASE_HEXA_L		"0123456789abcdef"
 # define BASE_HEXA_U		"0123456789ABCDEF"
 
@@ -39,6 +40,7 @@ typedef enum e_type
 	D_INT,
 	I_INT,
 	U_INT,
+	OCTAL,
 	LC_HEXA,
 	UC_HEXA,
 	PCT,
