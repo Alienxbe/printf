@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 15:46:33 by mykman            #+#    #+#             */
-/*   Updated: 2021/05/28 17:06:04 by mykman           ###   ########.fr       */
+/*   Updated: 2021/06/15 14:59:18 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,11 @@ int				ft_lstsize(t_list *lst);
 ** ---- PRINTF ----
 */
 
-int				ft_intsize(int n, int c);
-int				ft_index(const char *s, char c);
-unsigned long	ft_pow(unsigned long n, int pow);
-void			ft_padding(char c, int n);
-char			*ft_ctoa(char c);
-char			*ft_ultoa_base(unsigned long n, int minsize, char *base);
+int					ft_intsize(int n, int c);
+int					ft_index(const char *s, char c);
+unsigned long long	ft_pow(unsigned long long n, int pow);
+void				ft_padding(char c, int n);
+char				*ft_ctoa(char c);
+char				*ft_ultoa_base(unsigned long n, int minsize, char *base);
 
 #endif
