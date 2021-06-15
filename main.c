@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 20:34:49 by mykman            #+#    #+#             */
-/*   Updated: 2021/06/15 14:57:16 by mykman           ###   ########.fr       */
+/*   Updated: 2021/06/15 15:24:38 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	main(void)
 		{
 			printf("%20llu\n", ft_pow(5, m_size - exponent_val - bit) * ft_pow(10, bit));
 			float_dec += ft_pow(5, m_size - exponent_val - bit) * ft_pow(10, bit);
+			// Overflow ici !!!
+			// Solutions : Strings maths or New type w/ struct
 		}
 		else
 			printf("\n");
